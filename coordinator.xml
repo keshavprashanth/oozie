@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coordinator-app name="Line-Count-Coordinator" frequency="${coord:minutes(5)}"
+             start="${jobStart}" end="${jobEnd}"
+             timezone="UTC"
+             xmlns="uri:oozie:coordinator:0.4">
+  <action>
+    <workflow>
+          <app-path>${appPath}/workflow.xml</app-path>
+      <configuration>
+
+<property>
+          <name>lineCountScript</name>
+          <value>${lineCountScript}</value>
+        </property>
+
+<property>
+         <name>Script-Path</name>
+         <value>
+            ${ScriptPath}
+          </value>
+        </property>
+      </configuration>
+    </workflow>
+  </action>
+</coordinator-app>

@@ -1,0 +1,33 @@
+check status of oozie server. 
+oozie admin -oozie http://quickstart.cloudera:11000/oozie -status
+
+Setting up OOZIE_URL configurations.
+export OOZIE_URL=http://quickstart.cloudera:11000/oozie
+
+
+Running a oozie workflow.
+oozie job -oozie http://quickstart.cloudera:11000/oozie -config /home/cloudera/edgenode/oozie/job.properties -run
+
+
+Get oozie job info:
+oozie job -oozie http://quickstart.cloudera:11000/oozie -info job_name
+
+Killing a oozie job. 
+oozie job -oozie http://quickstart.cloudera:11000/oozie -kill job_name
+
+
+Submitting Oozie coordinator. 
+Running a oozie workflow.
+oozie job -oozie http://quickstart.cloudera:11000/oozie -config /home/cloudera/edgenode/oozie/job.properties -submit
+
+
+
+-- Workflow.xml, coordinator.xml, shell scripts and any MR or Java programs must exist in HDFS. 
+-- job.properties file must be placed in local file system. 
+
+
+Defining the xml paths in job.property. 
+
+oozie.wf.application.path=
+oozie.coord.application.path=
+oozie.bundle.application.path=
